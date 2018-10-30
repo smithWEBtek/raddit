@@ -1,6 +1,10 @@
 class CommentsController < ApplicationController
   before_action :set_comment, only: [:show, :edit, :update, :destroy]
-  before_filter :authenticate_user!
+  before_action :authenticate_user!
+
+  def index
+    @comments = Comment.all
+  end
 
   def create
     @link = Link.find(params[:link_id])
@@ -23,7 +27,7 @@ class CommentsController < ApplicationController
   def destroy
     @comment.destroy
     respond_to do |format|
-      format.html { redirect_to :back, notice: 'Comment was successfully destroyed.' }
+      format.html { redirect_back fallback_location: root_path, notice: 'Comment was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
