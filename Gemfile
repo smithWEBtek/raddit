@@ -34,6 +34,7 @@ gem 'bootstrap-sass', '~> 3.3', '>= 3.3.7'
 gem 'acts_as_votable', '~> 0.11.1'
 gem 'simple_form', '~> 4.0', '>= 4.0.1'
 gem 'record_tag_helper', '~> 1.0'
+gem 'jquery-rails', '~> 4.3', '>= 4.3.3'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development

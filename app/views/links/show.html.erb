@@ -32,6 +32,10 @@
 
 <p>
   <%= link_to "Load Comments", link_comments_path(@link), :class => "load_comments" %>
+</p>
+
+<div class="comments">
+</div>
 
 <div id="comments">
   <%= render :partial => @link.comments %>
