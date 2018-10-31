@@ -34,12 +34,13 @@
   <%= link_to "Load Comments", link_comments_path(@link), :class => "load_comments" %>
 </p>
 
-<div class="comments">
+<div class="comments_section">
 </div>
 
 <div id="comments">
   <%= render :partial => @link.comments %>
 </div>
+
 <%= simple_form_for [@link, Comment.new]  do |f| %>
   <div class="field">
     <%= f.text_area :body, class: "form-control" %>
