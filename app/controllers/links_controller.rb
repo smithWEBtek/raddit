@@ -10,6 +10,8 @@ class LinksController < ApplicationController
   # GET /links/1
   # GET /links/1.json
   def show
+    @comments = @link.comments
+    @comment = Commnet.new
   end
 
   # GET /links/new
