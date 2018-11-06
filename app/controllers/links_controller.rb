@@ -11,7 +11,7 @@ class LinksController < ApplicationController
   # GET /links/1.json
   def show
     @comments = @link.comments
-    @comment = Commnet.new
+    @comment = Comment.new
   end
 
   # GET /links/new
