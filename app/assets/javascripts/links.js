@@ -17,7 +17,6 @@ $(function(){
 
 $(function() {
     $("#new_comment").on("submit", function(e){
-    alert("You clicked it")
     url = this.action
 
     data = {
