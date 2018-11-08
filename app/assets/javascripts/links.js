@@ -32,7 +32,8 @@ $(function() {
         url: url,
         data: data,
         success: function(response){
-            var $
+            var $div = $("div.comments");
+            $div.append(response)
         }
     })
     e.preventDefault();
