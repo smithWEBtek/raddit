@@ -31,7 +31,7 @@ $(function() {
         url: url,
         data: data,
         success: function(response){
-            var $div = $("div.comments");
+            var $div = $("div.comments ul");
             $div.append(response)
         }
     })
