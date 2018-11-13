@@ -18,11 +18,13 @@ $(function(){
 $(function() {
     $("#new_comment").on("submit", function(e){
     url = this.action
+    var commentText = document.getElementById("comment_body").innerHTML
+    var myJSON = JSON.stringify(commentText);
 
     data = {
         'authenticity_token': $("input[name='authenticity_token']").val(),
         'comment': {
-            'content': $("comment_content").val()
+            'content': $(myJSON).val()
         }
     };
 
@@ -30,6 +32,7 @@ $(function() {
         type: "POST",
         url: url,
         data: data,
+        headers: {'Content-Type': 'application/json' },
         success: function(response){
             var $div = $("div.comments ul");
             $div.append(response)
