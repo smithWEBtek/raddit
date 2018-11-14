@@ -1,5 +1,14 @@
 <h1>Profile: <%= @user.name %></h1>
 
+
+<p>
+  <%= link_to "Load Link", link_path(@link), :class => "load_links" %>
+</p>
+
+<div class="links_section">
+ 
+</div>
+
     <% @user_links.map do |link| %>
         <%= link_to link.title, link_path(link) %><br>
     <% end %>

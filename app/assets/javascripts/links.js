@@ -44,5 +44,19 @@ $(function() {
     })
 });
 
+// Show a User's Links
 
+$(function(){
+    $("a.load_links").on("click", function(e){
+        $.get(this.href).success(function(response){
+            $("div.link").html(response)
+            var link_section = document.querySelector('.links_section')
 
+            response.forEach(function(link) {
+              var link_body = `${link.body}`
+                link_section.innerHTML += `${link_body} <br> `
+            });
+        })
+        e.preventDefault();
+    })
+});
