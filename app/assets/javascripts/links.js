@@ -1,3 +1,5 @@
+// Show comments on click
+
 $(function(){
     $("a.load_comments").on("click", function(e){
         $.get(this.href).success(function(response){
@@ -11,7 +13,7 @@ $(function(){
         })
         e.preventDefault();
     })
-})
+});
 
 // Submit comment via AJAX
 
@@ -41,3 +43,6 @@ $(function() {
     e.preventDefault();
     })
 });
+
+
+
