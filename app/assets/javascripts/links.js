@@ -53,8 +53,8 @@ $(function(){
             var link_section = document.querySelector('.links_section')
 
             response.forEach(function(link) {
-              var link_body = `${link.body}`
-                link_section.innerHTML += `${link_body} <br> `
+              var link_title = `${link.title}`
+                link_section.innerHTML += `${link_title} <br> `
             });
         })
         e.preventDefault();
