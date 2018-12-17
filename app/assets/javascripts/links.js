@@ -60,3 +60,10 @@ $(function(){
         e.preventDefault();
     })
 });
+
+// Example constructor function?
+
+// function User(name, age, hometown) {
+//    this.name = name
+//    this.email = email
+// }
