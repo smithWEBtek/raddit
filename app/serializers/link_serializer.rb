@@ -1,3 +1,4 @@
 class LinkSerializer < ActiveModel::Serializer
-  attributes :id
+  attributes :id, :title, :url, :user_id
+  belongs_to :user
 end
