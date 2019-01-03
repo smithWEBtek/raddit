@@ -3,11 +3,16 @@ class CommentsController < ApplicationController
   before_action :authenticate_user!
 
   def index
-    @comments = Comment.all
+    if params[:link_id]
+      @link = Link.find(params[:link_id])
+      @comments = @link.comments
+    else
+      @comments = Comment.all
+    end
 
     respond_to do |format|
-      format.json { render json: @comments, status: :ok }
-    end
+      format.html { render :index }
+      format.json { render json: @comments }
   end
 
   def create

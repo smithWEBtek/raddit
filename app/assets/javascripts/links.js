@@ -1,8 +1,15 @@
 // Show comments on click
 
 $(function(){
-    $("a.load_comments").on("click", function(e){
-        $.get(this.href).success(function(response){
+    $("a.load_comments").on("click", function(e) {
+        e.preventDefault();
+
+        $.ajax({
+            url: this.href,
+            method: 'get',
+            dataType: 'json'
+        }).done(function (response) {
+
             $("div.comment").html(response)
             var comment_section = document.querySelector('.comments_section')
 
@@ -11,9 +18,13 @@ $(function(){
                 comment_section.innerHTML += `${comment_body} <br> `
             });
         })
-        e.preventDefault();
     })
-});
+}); }
+
+        
+
+
+
 
 // Submit comment via AJAX
 
@@ -61,9 +72,33 @@ $(function(){
     })
 });
 
-// Example constructor function?
 
-// function User(name, age, hometown) {
-//    this.name = name
-//    this.email = email
-// }
+// Fetch a random link
+
+const button = document.getElementById('random-link')
+
+button.addEventListener('click', function(event) {
+    getLinks()
+});
+
+function getLinks() {
+    fetch('???')
+    .then(res => res.json())
+    .then(data => {
+        const link = new link(data.message)
+
+        const linkHTML = link.formatHtml()
+
+        document.getElementById('random-link-spot').innerHTML = linkHTML
+    })
+}
+
+class Link {
+    constructor(message) {
+        this.linkURL = message
+    }
+}
+
+Link.prototype.formatHtml = function() {
+    return `<a href="${this.linkURL}"></a>`
+}
