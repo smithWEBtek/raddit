@@ -74,35 +74,41 @@ $(function(){
 // Fetch a random link
 
 function listenForGetLink() {
-   //let generateLink = document.querySelector('a#show-links')
-
-    
-   
-    generateLink.addEventListener('click', function(e) {
-        e.preventDefault()
-       // getLinks()
-    });
+   $('a#show-links').on('click', function(e) {
+       e.preventDefault()
+       let href = this.href
+       getLinks(href)
+   });
 }
 
 
-function getLinks() {
-    fetch('???')
-    .then(res => res.json())
-    .then(data => {
-        const link = new link(data.message)
+function getLinks(url) {
+    fetch(url + 'json')
+    }).then(res => res.json()
+        .then(data => {
 
-        const linkHTML = link.formatHtml()
+            data.map((link, index)=> {
+                let newLink = new Link(link)
+            })
 
-        document.getElementById('random-link-spot').innerHTML = linkHTML
-    })
+            const link = new Link(data)
+            const linkHTML = link.formatHtml()
+            document.getElementById('random-link-spot').innerHTML = linkHTML
+
+        }))
 }
 
 class Link {
-    constructor(message) {
-        this.linkURL = message
+    constructor(obj) {
+        this.id = obj.id
+        this.title = obj.title
+        this.url = obj.url 
     }
 }
 
 Link.prototype.formatHtml = function() {
-    return `<a href="${this.linkURL}"></a>`
+    return (`
+    <p>${this.title}></p>
+    <a href="${this.url}"></a>
+    `)
 }
