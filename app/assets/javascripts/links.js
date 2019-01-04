@@ -1,3 +1,6 @@
+$(function (){
+    listenForGetLink();
+})
 // Show comments on click
 
 $(function(){
@@ -19,12 +22,7 @@ $(function(){
             });
         })
     })
-}); }
-
-        
-
-
-
+}); 
 
 // Submit comment via AJAX
 
@@ -75,11 +73,17 @@ $(function(){
 
 // Fetch a random link
 
-const button = document.getElementById('random-link')
+function listenForGetLink() {
+   //let generateLink = document.querySelector('a#show-links')
 
-button.addEventListener('click', function(event) {
-    getLinks()
-});
+    
+   
+    generateLink.addEventListener('click', function(e) {
+        e.preventDefault()
+       // getLinks()
+    });
+}
+
 
 function getLinks() {
     fetch('???')

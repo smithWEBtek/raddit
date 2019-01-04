@@ -6,7 +6,7 @@ class LinksController < ApplicationController
   def index
     @links = Link.all
 
-     render json: @link, status: 200
+     #render json: @links, status: 200
   end
 
   # GET /links/1
